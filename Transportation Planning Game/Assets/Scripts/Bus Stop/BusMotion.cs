@@ -29,14 +29,14 @@ public class BusMotion : MonoBehaviour
     {
         if (busStop)
         {
-            busStopCollider.enabled = false; // Disable the bus stop collider to prevent further detections
+            //busStopCollider.enabled = false; // Disable the bus stop collider to prevent further detections
             Accelerate(0); // Brake the bus to 0
         }
     }
 
     void ReturnToNormalVelocity()
     {
-        busStopCollider.enabled = true; // Enable the bus stop collider when returning to normal velocity
+        //busStopCollider.enabled = true; // Enable the bus stop collider when returning to normal velocity
         Accelerate(normalVelocity);
     }
 
@@ -78,7 +78,7 @@ public class BusMotion : MonoBehaviour
     IEnumerator StopAtStation()
     {
         StopBus();
-        if (Mathf.Round(currentVelocity) == 0) busStopCollider.gameObject.SetActive(false);
+        //if (Mathf.Round(currentVelocity) == 0) busStopCollider.gameObject.SetActive(false);
         yield return new WaitForSeconds(5);
         ReturnToNormalVelocity(); // <<< What?
     }
