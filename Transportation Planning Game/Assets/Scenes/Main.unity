@@ -1058,8 +1058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1173cf7ac8677164b9a4f0262d3f9f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothPath: {fileID: 1544328547}
-  pathFinder: {fileID: 776129039}
+  track: {fileID: 1544328547}
   smoothing: 2
 --- !u!1 &898481864
 GameObject:
@@ -1360,7 +1359,6 @@ MonoBehaviour:
   m_PositionUnits: 2
   m_Speed: 0.05
   m_Position: 0
-  independentRotY: 0
 --- !u!4 &1100788887
 Transform:
   m_ObjectHideFlags: 0
@@ -1788,17 +1786,17 @@ MonoBehaviour:
   m_Waypoints:
   - position: {x: -22.406, y: 2.998, z: -10.251}
     roll: 0
-  - position: {x: -34.36329, y: 2.998, z: -12.00993}
+  - position: {x: -34.363293, y: 2.998, z: -12.00993}
     roll: 0
-  - position: {x: -35.91995, y: 2.998, z: -14.25596}
+  - position: {x: -35.91995, y: 2.998, z: -14.255961}
     roll: 0
-  - position: {x: -34.07905, y: 2.998, z: -22.78304}
+  - position: {x: -34.079052, y: 2.998, z: -22.78304}
     roll: 0
-  - position: {x: -35.62636, y: 2.998, z: -25.08675}
+  - position: {x: -35.62636, y: 2.998, z: -25.086748}
     roll: 0
-  - position: {x: -45.42664, y: 2.998, z: -26.82225}
+  - position: {x: -45.42664, y: 2.998, z: -26.822252}
     roll: 0
-  - position: {x: -46.99157, y: 2.998, z: -29.12968}
+  - position: {x: -46.991573, y: 2.998, z: -29.129684}
     roll: 0
   - position: {x: -44.84, y: 2.998, z: -39.55}
     roll: 0

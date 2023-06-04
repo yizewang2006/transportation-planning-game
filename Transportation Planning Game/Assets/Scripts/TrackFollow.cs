@@ -31,8 +31,6 @@ public class TrackFollow : MonoBehaviour
         [FormerlySerializedAs("m_CurrentDistance")]
         public float m_Position;
 
-        public bool independentRotY;
-
         void FixedUpdate()
         {
             if (m_UpdateMethod == UpdateMethod.FixedUpdate)

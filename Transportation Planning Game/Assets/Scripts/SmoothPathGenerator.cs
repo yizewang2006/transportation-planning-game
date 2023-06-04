@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
+[ExecuteAlways]
+[RequireComponent(typeof(PathFinder))]
 public class SmoothPathGenerator : MonoBehaviour
 {
-    public CinemachineSmoothPath smoothPath;
-    public PathFinder pathFinder;
+    public CinemachineSmoothPath track;
     public float smoothing = 3;
+
+    PathFinder pathFinder;
 
     void Update()
     {
-        if (smoothPath != null && pathFinder != null) GenerateSmoothPath(pathFinder);
+        if(pathFinder == null) pathFinder = GetComponent<PathFinder>();
+        if (track != null && pathFinder != null) GenerateSmoothPath(pathFinder);
     }
 
     public void GenerateSmoothPath(PathFinder path)
@@ -37,8 +41,6 @@ public class SmoothPathGenerator : MonoBehaviour
                     newPoint.position = (midPoint + (targetNode.position - prevNode.position) / 2) + (direction * -smoothing);
                     waypoints.Add(newPoint);
 
-                    print(i + ": " + targetNode.name + " : " + prevNode.name);
-
                     targetNode = path.bestPath[i].transform;
                     prevNode = path.bestPath[i + 1].transform;
                     midPoint = (targetNode.position + prevNode.position) / 2f;
@@ -49,6 +51,6 @@ public class SmoothPathGenerator : MonoBehaviour
 
             }
         }
-        smoothPath.m_Waypoints = waypoints.ToArray();
+        track.m_Waypoints = waypoints.ToArray();
     }
 }
