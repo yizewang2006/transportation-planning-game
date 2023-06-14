@@ -11,17 +11,17 @@ public class BusMotion : MonoBehaviour
 
     public bool busStop;
 
-    TrackFollow trackFollowScript;
+    CarDriver trackFollowScript;
     [SerializeField] private Collider busStopCollider;
 
     private void Awake()
     {
-        trackFollowScript = GetComponent<TrackFollow>();
+        trackFollowScript = GetComponent<CarDriver>();
     }
 
     private void Update()
     {
-        trackFollowScript.m_Speed = currentVelocity;
+        trackFollowScript.moveSpeed = currentVelocity;
         DetectObject(10f);
     }
 

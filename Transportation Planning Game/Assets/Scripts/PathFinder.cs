@@ -1,19 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 [ExecuteAlways]
 public class PathFinder : MonoBehaviour
 {
-    public List<Intersection> intersections = new List<Intersection>();
-    public List<Intersection> bestPath = new List<Intersection>();
-    public Intersection start;
-    public Intersection end;
+    public List<Node> nodes = new List<Node>();
+    public List<Node> bestPath = new List<Node>();
+    public Node start;
+    public Node end;
+    public Color debugColor = Color.yellow;
 
     void Update()
     {
-        if(start != end && start != null & end != null && intersections.Count >= 2)
+        if (!start.Equals(end) && start != null && end != null && nodes.Count >= 2)
             bestPath = CalculateBestPath(start, end);
         else
             bestPath.Clear();
@@ -21,65 +20,102 @@ public class PathFinder : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        foreach (Intersection inter in bestPath)
+        if (bestPath.Count < 2)
+            return;
+
+        for (int i = 0; i < bestPath.Count - 1; i++)
         {
-            if (bestPath.Count < 2)
-                return;
+            Node currentNode = bestPath[i];
+            Node nextNode = bestPath[i + 1];
 
-            for (int i = 0; i < bestPath.Count - 1; i++)
+            if (currentNode != null && nextNode != null)
             {
-                GameObject objA = bestPath[i].gameObject;
-                GameObject objB = bestPath[i + 1].gameObject;
+                Gizmos.color = debugColor;
+                Gizmos.DrawLine(currentNode.transform.position, nextNode.transform.position);
+            }
+        }
+    }
 
-                if (objA != null && objB != null)
+    public static void AddAllNodes(PathFinder pathFinder)
+    {
+        pathFinder.nodes.Clear();
+
+        Node[] nodes = FindObjectsOfType<Node>();
+
+        foreach (Node node in nodes)
+        {
+            if (!pathFinder.nodes.Contains(node))
+            {
+                pathFinder.nodes.Add(node);
+            }
+        }
+
+    }
+
+    // Dijkstra's algorithm
+    // https://youtu.be/pVfj6mxhdMw - Explanation
+    public List<Node> CalculateBestPath(Node starting, Node ending)
+    {
+        Dictionary<Node, float> distances = new Dictionary<Node, float>(); // Stores the shortest distance from the starting node to each node
+        Dictionary<Node, Node> previousNodes = new Dictionary<Node, Node>(); // Stores the previous node in the best path
+        List<Node> unvisitedNodes = new List<Node>(); // Stores the nodes that haven't been visited yet
+
+        // Initialization
+        foreach (var node in nodes)
+        {
+            distances[node] = float.MaxValue;
+            previousNodes[node] = null;
+            unvisitedNodes.Add(node);
+        }
+
+        distances[starting] = 0;
+
+        while (unvisitedNodes.Count > 0)
+        {
+            // Find the unvisited node with the smallest distance
+            Node currentNode = null;
+            float smallestDistance = float.MaxValue;
+            foreach (var node in unvisitedNodes)
+            {
+                if (distances[node] < smallestDistance)
                 {
-                    Gizmos.color = Color.yellow;
-                    Gizmos.DrawLine(objA.transform.position, objB.transform.position);
+
+                    smallestDistance = distances[node];
+                    currentNode = node;
+                }
+            }
+
+            if (currentNode == null)
+                break;
+
+            unvisitedNodes.Remove(currentNode);
+
+            // Check if the current node is the ending node
+            if (currentNode == ending)
+                break;
+
+            // Calculate the tentative distance for each connected node
+            foreach (var neighbor in currentNode.connectedNodes)
+            {
+                float distance = Vector3.Distance(currentNode.transform.position, neighbor.transform.position);
+                float tentativeDistance = distances[currentNode] + distance;
+
+                if (tentativeDistance < distances[neighbor])
+                {
+                    distances[neighbor] = tentativeDistance;
+                    previousNodes[neighbor] = currentNode;
                 }
             }
         }
-    }
 
-    public List<Intersection> CalculateBestPath(Intersection starting, Intersection ending)
-    {
-        foreach (var i in intersections)
-            i.searched = false;
-
-        Intersection currentSearched = starting;                            // Stores the current node being searched
-        List<Intersection> bestPath = new List<Intersection>();            // The list of the best path from start to end
-        bestPath.Add(starting);
-
-        while (true)
+        // Build the best path by backtracking from the ending node
+        List<Node> bestPath = new List<Node>();
+        Node current = ending;
+        while (current != null)
         {
-            Intersection nearestNextNode = GetNearestNextNode(currentSearched, ending);
-
-            currentSearched.searched = true;
-
-            bestPath.Add(nearestNextNode);
-            currentSearched = nearestNextNode;
-
-            if (nearestNextNode == ending) break;
-        }
-
+            bestPath.Insert(0, current);
+            current = previousNodes[current];
+        }       
         return bestPath;
-    }
-
-    public Intersection GetNearestNextNode(Intersection searchFrom, Intersection ending)
-    {
-        Intersection nearestNode = null;
-        float nearestDistance = float.MaxValue;
-
-        foreach (Intersection obj in searchFrom.connectedNodes)
-        {
-            if (obj.searched) continue;
-            float distance = Vector3.Distance(obj.transform.position, ending.transform.position);
-            if (distance < nearestDistance)
-            {
-                nearestDistance = distance;
-                nearestNode = obj;
-            }
-        }
-
-        return nearestNode;
     }
 }
