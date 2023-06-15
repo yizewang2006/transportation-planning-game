@@ -20,9 +20,6 @@ public class CameraFreeMovement : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         rotationX = cam.rotation.eulerAngles.x;
         rotationY = cam.rotation.eulerAngles.y;
     }

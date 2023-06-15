@@ -13,7 +13,7 @@ public class PathFinder : MonoBehaviour
     void Update()
     {
         if (!start.Equals(end) && start != null && end != null && nodes.Count >= 2)
-            bestPath = CalculateBestPath(start, end);
+            bestPath = CalculateBestPath(start, end, nodes);
         else
             bestPath.Clear();
     }
@@ -54,14 +54,14 @@ public class PathFinder : MonoBehaviour
 
     // Dijkstra's algorithm
     // https://youtu.be/pVfj6mxhdMw - Explanation
-    public List<Node> CalculateBestPath(Node starting, Node ending)
+    public List<Node> CalculateBestPath(Node starting, Node ending, List<Node> allNodes)
     {
         Dictionary<Node, float> distances = new Dictionary<Node, float>(); // Stores the shortest distance from the starting node to each node
         Dictionary<Node, Node> previousNodes = new Dictionary<Node, Node>(); // Stores the previous node in the best path
         List<Node> unvisitedNodes = new List<Node>(); // Stores the nodes that haven't been visited yet
 
         // Initialization
-        foreach (var node in nodes)
+        foreach (var node in allNodes)
         {
             distances[node] = float.MaxValue;
             previousNodes[node] = null;
