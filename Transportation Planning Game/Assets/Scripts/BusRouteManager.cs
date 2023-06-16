@@ -4,81 +4,84 @@ using UnityEngine;
 
 public class BusRouteManager : MonoBehaviour
 {
-    public float mouseRayCheck;
+    // public float mouseRayCheck;
+    // public float busLineWidth;
 
-    RaycastHit hit;
-    public Transform busLineCircle;
-    public LineRenderer busLine;
-    public float busLineWidth;
-    public Node currentSelectedNode;
-    public Node start;
-    public Node end;
-    public bool complete;
+    // [Space(15)]
+    // public Transform stationIcon;
+    // public Transform disconnectedIcon;
+    // RaycastHit hit;
 
-    void Update()
-    {
-        BusPathCreator();
-        BusPathDrawer();
-    }
+    // public LineRenderer busLine;
+    // public Node currentSelectedNode;
+    // public Node start;
+    // public Node end;
+    // public bool complete;
 
-    void BusPathCreator()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                Collider[] colliders = Physics.OverlapSphere(hit.point, mouseRayCheck);
-                float closestDistance = float.MaxValue;
+    // void Update()
+    // {
+    //     BusPathCreator();
+    //     BusPathDrawer();
+    // }
 
-                foreach (Collider collider in colliders)
-                {
-                    Node node = collider.GetComponent<Node>();
+    // void BusPathCreator()
+    // {
+    //     if (Input.GetMouseButtonDown(0))
+    //     {
+    //         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //         if (Physics.Raycast(ray, out hit))
+    //         {
+    //             Collider[] colliders = Physics.OverlapSphere(hit.point, mouseRayCheck);
+    //             float closestDistance = float.MaxValue;
 
-                    if (node != null && node.nodeType == Node.NodeType.Bus)
-                    {
-                        float distance = Vector3.Distance(hit.point, collider.ClosestPoint(hit.point));
+    //             foreach (Collider collider in colliders)
+    //             {
+    //                 Node node = collider.GetComponent<Node>();
 
-                        if (distance < closestDistance)
-                        {
-                            currentSelectedNode = node;
-                            closestDistance = distance;
-                        }
-                    }
-                }
+    //                 if (node != null && node.nodeType == Node.NodeType.Bus)
+    //                 {
+    //                     float distance = Vector3.Distance(hit.point, collider.ClosestPoint(hit.point));
 
-                if(currentSelectedNode != null)
-                {
-                    if(start == null) 
-                    {
-                        start = currentSelectedNode;
-                        Instantiate(busLineCircle, start.transform.position, Quaternion.identity);
-                    }
-                    else if(end == null)
-                    {
-                        Instantiate(busLineCircle, start.transform.position, Quaternion.identity);
-                        end = currentSelectedNode;
-                        if(start != null && end != null) complete = true;
-                    }
-                }
-            }
-        }
+    //                     if (distance < closestDistance)
+    //                     {
+    //                         currentSelectedNode = node;
+    //                         closestDistance = distance;
+    //                     }
+    //                 }
+    //             }
 
-    }
+    //             if (currentSelectedNode != null)
+    //             {
+    //                 if (start == null)
+    //                 {
+    //                     start = currentSelectedNode;
+    //                     Instantiate(busLineCircle, start.transform.position, Quaternion.identity);
+    //                 }
+    //                 else if (end == null)
+    //                 {
+    //                     Instantiate(busLineCircle, start.transform.position, Quaternion.identity);
+    //                     end = currentSelectedNode;
+    //                     if (start != null && end != null) complete = true;
+    //                 }
+    //             }
+    //         }
+    //     }
 
-    void BusPathDrawer()
-    {
-        if(complete)
-        {
-            busLine.widthMultiplier = busLineWidth;
-            PathFinder newPath = new PathFinder();
-            PathFinder.AddAllNodes(newPath);
-            List<Node> bestPath = newPath.CalculateBestPath(start, end, newPath.nodes);
-            busLine.positionCount = bestPath.Count;
-            for (int i = 0; i < bestPath.Count; i++)
-            {
-                busLine.SetPosition(i, bestPath[i].transform.position);
-            }
-        }
-    }
+    // }
+
+    // void BusPathDrawer()
+    // {
+    //     if (complete)
+    //     {
+    //         busLine.widthMultiplier = busLineWidth;
+    //         PathFinder newPath = new PathFinder();
+    //         PathFinder.AddAllNodes(newPath);
+    //         List<Node> bestPath = newPath.CalculateBestPath(start, end, newPath.nodes);
+    //         busLine.positionCount = bestPath.Count;
+    //         for (int i = 0; i < bestPath.Count; i++)
+    //         {
+    //             busLine.SetPosition(i, bestPath[i].transform.position);
+    //         }
+    //     }
+    // }
 }
