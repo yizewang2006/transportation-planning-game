@@ -7,115 +7,81 @@ using UnityEngine;
 public class BusRoute : MonoBehaviour
 {
     public List<Node> busStations = new List<Node>();
-    public List<PathFinder> pathFinders = new List<PathFinder>();
-    public List<Node> bestPathAll = new List<Node>();
-    public float lineWidth;
 
-    [Space(20)]
-    public float iconYOffset = 2;
-    public float circleIconYOffset = 0.01f;
-    public Transform disconnectedIcon;
-    public Transform stationIcon;
-    public Transform circleIcon;
-    public Transform busStationHolder;
-    public Material lineMaterial;
+    float lineWidth;
+    float iconYOffset = 2;
+    float circleIconYOffset = 0.01f;
+    Transform stationIcon;
+    Transform circleIcon;
+    Transform busStationHolder;
+    Material lineMaterial;
 
-    GameObject newRoute;
+    public GameObject newRoute = null;
+    BusRouteManager busRouteManager;
+    PathFinder newPath;
     void Start()
     {
+        busRouteManager = BusRouteManager.Instance;
+        busStationHolder = busRouteManager.busStationHolder;
+
         newRoute = new GameObject("Bus Station " + (busStationHolder.childCount + 1));
         newRoute.transform.SetParent(busStationHolder);
+
+        SetupLine();
+    }
+
+    void SetupLine()
+    {
+        lineWidth = busRouteManager.lineWidth;
+        iconYOffset = busRouteManager.iconYOffset;
+        circleIconYOffset = busRouteManager.circleIconYOffset;
+        stationIcon = busRouteManager.stationIcon;
+        circleIcon = busRouteManager.circleIcon;
+        lineMaterial = busRouteManager.lineMaterial;
 
         LineRenderer newLine = newRoute.AddComponent<LineRenderer>();
         newLine.alignment = LineAlignment.TransformZ;
         newLine.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         newLine.receiveShadows = false;
-        newLine.transform.rotation = Quaternion.Euler(90,0,0);
+        newLine.transform.rotation = Quaternion.Euler(90, 0, 0);
         newLine.startWidth = lineWidth;
         newLine.endWidth = lineWidth;
         newLine.material = lineMaterial;
         newLine.numCornerVertices = 5;
     }
 
-    public void CreateBusLines()
+    void Update()
     {
-        //DestroyAllRoutes(busStationHolder);
-        // If no connection on one end
-        if(busStations.Count == 1)
-        {
-            SpawnIcon(false, busStations[0].transform);
-            Instantiate(circleIcon, busStations[0].transform.position + (Vector3.up * circleIconYOffset), Quaternion.Euler(90, 0, 0))
-            .SetParent(newRoute.transform);
-        }
-        // If no connection in both ends 
-        else if(busStations.Count > 1 && busStations[0] != busStations[^1])
-        {
-            for (int i = 0; i < busStations.Count; i++)
-            {
-                if(i == 0 || i == busStations.Count - 1)
-                {
-                    SpawnIcon(false, busStations[i].transform);
-                }
-            }
+        busStations.RemoveAll(node => node == null);
 
-            for (int i = 0; i < busStations.Count; i++)
-            {
-                if(i != busStations.Count - 1)
-                {
-                    PathFinder newPath = newRoute.AddComponent<PathFinder>();
-                    PathFinder.AddAllNodes(newPath);
-                    newPath.start = busStations[i];
-                    newPath.end = busStations[i+1];
-                    
-                    pathFinders.Add(newPath);
-                }
-                Instantiate(circleIcon, busStations[i].transform.position + (Vector3.up * circleIconYOffset), Quaternion.Euler(90, 0, 0))
-                .SetParent(newRoute.transform);
-            }
-        } 
-        // Connection in every station
-        else 
+        if(newRoute.transform.childCount > 0)
         {
-            for (int i = 0; i < busStations.Count; i++)
-            {
-                SpawnIcon(true, busStations[i].transform);
-            }
-            for (int i = 0; i < busStations.Count; i++)
-            {
-                if(i != busStations.Count - 1)
-                {
-                    PathFinder newPath = newRoute.AddComponent<PathFinder>();
-                    PathFinder.AddAllNodes(newPath);
-                    newPath.start = busStations[i];
-                    newPath.end = busStations[i+1];
-                    
-                    pathFinders.Add(newPath);
-                }
-                Instantiate(circleIcon, busStations[i].transform.position + (Vector3.up * circleIconYOffset), Quaternion.Euler(90, 0, 0))
-                .SetParent(newRoute.transform);
-            }
+            newRoute.transform.GetChild(0).GetComponent<MeshRenderer>().material = busRouteManager.startStationMat;
+            
+            if(newRoute.transform.childCount > 1)
+                newRoute.transform.GetChild(1).GetComponent<MeshRenderer>().material = busRouteManager.endStationMat;
         }
 
-        if(pathFinders.Count > 0)
+        if (newPath != null)
         {
-            bestPathAll = pathFinders.SelectMany(pf => pf.bestPath).ToList();
-            newRoute.GetComponent<LineRenderer>().positionCount = bestPathAll.Count;
-            newRoute.GetComponent<LineRenderer>().SetPositions(bestPathAll.Select(node => node.transform.position + (Vector3.up * 0.2f)).ToArray());
-
+            
+            newRoute.GetComponent<LineRenderer>().positionCount = newPath.bestPath.Count;
+            newRoute.GetComponent<LineRenderer>().SetPositions(newPath.bestPath.Select(node => node.transform.position + (Vector3.up * 0.2f)).ToArray());
         }
     }
 
-    void SpawnIcon(bool connected, Transform station)
+    public void CreateBusLine()
     {
-        Instantiate(connected? stationIcon : disconnectedIcon, station.transform.position + (Vector3.up * iconYOffset), Quaternion.identity).SetParent(newRoute.transform);
+        newPath = newRoute.AddComponent<PathFinder>();
+        PathFinder.AddAllNodes(newPath);
+        newPath.start = busStations[0];
+        newPath.end = busStations[1];
+
+        SpawnIcon(newPath.start.transform);
     }
 
-    void DestroyAllRoutes(Transform parent)
+    void SpawnIcon(Transform station)
     {
-        if(parent.childCount == 0) return;
-        for (int i = parent.childCount - 1; i >= 0; i--)
-        {
-            GameObject.DestroyImmediate(parent.GetChild(i).gameObject);
-        }
+        Instantiate(stationIcon, station.transform.position + (Vector3.up * iconYOffset), Quaternion.identity).SetParent(busStationHolder.transform);
     }
 }
