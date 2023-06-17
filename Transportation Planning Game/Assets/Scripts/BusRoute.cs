@@ -34,23 +34,12 @@ public class BusRoute : MonoBehaviour
         newLine.startWidth = lineWidth;
         newLine.endWidth = lineWidth;
         newLine.material = lineMaterial;
+        newLine.numCornerVertices = 5;
     }
 
-    void Update()
+    public void CreateBusLines()
     {
-        if(Input.GetKeyDown(KeyCode.L)) UpdateBusStation();
-        if(pathFinders.Count > 0)
-        {
-            bestPathAll = pathFinders.SelectMany(pf => pf.bestPath).ToList();
-            newRoute.GetComponent<LineRenderer>().positionCount = bestPathAll.Count;
-            newRoute.GetComponent<LineRenderer>().SetPositions(bestPathAll.Select(node => node.transform.position + (Vector3.up * 0.2f)).ToArray());
-
-        }
-    }
-
-    public void UpdateBusStation()
-    {
-        DestroyAllRoutes(busStationHolder);
+        //DestroyAllRoutes(busStationHolder);
         // If no connection on one end
         if(busStations.Count == 1)
         {
@@ -91,6 +80,28 @@ public class BusRoute : MonoBehaviour
             {
                 SpawnIcon(true, busStations[i].transform);
             }
+            for (int i = 0; i < busStations.Count; i++)
+            {
+                if(i != busStations.Count - 1)
+                {
+                    PathFinder newPath = newRoute.AddComponent<PathFinder>();
+                    PathFinder.AddAllNodes(newPath);
+                    newPath.start = busStations[i];
+                    newPath.end = busStations[i+1];
+                    
+                    pathFinders.Add(newPath);
+                }
+                Instantiate(circleIcon, busStations[i].transform.position + (Vector3.up * circleIconYOffset), Quaternion.Euler(90, 0, 0))
+                .SetParent(newRoute.transform);
+            }
+        }
+
+        if(pathFinders.Count > 0)
+        {
+            bestPathAll = pathFinders.SelectMany(pf => pf.bestPath).ToList();
+            newRoute.GetComponent<LineRenderer>().positionCount = bestPathAll.Count;
+            newRoute.GetComponent<LineRenderer>().SetPositions(bestPathAll.Select(node => node.transform.position + (Vector3.up * 0.2f)).ToArray());
+
         }
     }
 
