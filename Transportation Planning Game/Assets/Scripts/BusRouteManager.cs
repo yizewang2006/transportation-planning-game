@@ -11,6 +11,13 @@ public class BusRouteManager : MonoBehaviour
     public float mouseRayCheck;
 
     [Space(20)]
+    public float detectTerminalRange;
+    public int maxBusPerRoad = 2;
+    public int peoplePerBus;
+    public float busSpawnInterval;
+    public List<GameObject> busPrefab = new List<GameObject>();
+
+    [Space(20)]
     public TMP_Text drawingText;
     public GameObject circleSelection;
     public float lineWidth;
@@ -121,6 +128,7 @@ public class BusRouteManager : MonoBehaviour
             {
                 if(currentEditingRoute.busStations.Count < 2) return;
                 CreateBusLines(currentEditingRoute);
+
                 currentEditingRoute = null;
             }
         }

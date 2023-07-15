@@ -16,7 +16,12 @@ public class RouteManager : MonoBehaviour
     public List<GameObject> carPrefab = new List<GameObject>();
     public List<PathFinder> spawnedRoutes = new List<PathFinder>();
 
-    
+    public static RouteManager Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -76,10 +81,10 @@ public class RouteManager : MonoBehaviour
             spawnedRoutes.Add(path);
 
             CarSpawner newSpawner = path.AddComponent<CarSpawner>();
-            newSpawner.path = path;
+            newSpawner.carPath = path;
             newSpawner.maxPeople = Random.Range((int)peopleRange.x, (int)peopleRange.y+1);
             newSpawner.peoplePerCar = peoplePerCar;
-            newSpawner.spawnInterval = carSpawnInterval;
+            newSpawner.spawnIntervalCar = carSpawnInterval;
             newSpawner.carPrefab = new List<GameObject>(carPrefab);
         }
     }

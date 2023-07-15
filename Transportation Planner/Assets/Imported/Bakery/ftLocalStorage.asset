@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ca84e725c7c764aa5ed097918d14b7, type: 3}
+  m_Name: ftLocalStorage
+  m_EditorClassIdentifier: 
+  modifiedAssetPathList:
+  - Assets/Bakery/examples/content/sponza/sponza.FBX
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Sidewalk_11.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/street_.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Sidewalk_10.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Sidewalk_01.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_Y.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Sidewalk_06.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Grass_stone_02.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/Fence_B_1.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/WalkWay 5.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_V.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_I_1.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/Wall 1.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/tree_01.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/BurgerSho_Sign.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/Wall 2.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_u.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/traffic_warning_stand.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Sidewalk_05.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/Fence_B_2.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Shops_FBX/Shop_A.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_B1.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_E.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/Traffic_pot.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/y_board.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_N.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_D1.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Shops_FBX/Shop_C.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_J.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/air conditioner wall.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_D.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Parking_checkOut.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/WalkWay_02.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_Z.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/building_X.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_I_2.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/WalkWay 6.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_S.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_I_3.fbx
+  - Assets/Imported/Buses/japanese-bus-nishitetsu-bus-fukuoka/source/nishitetsubus.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_A1.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Sidewalk_04.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_H.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_A.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/StoneStreet.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Sidewalk_08.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Letters FBX/Letter_T.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Grass_stone_01.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/air conditioner roof.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Sidewalk_12.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_T.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Letters FBX/Letter_L.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_c.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Hospital.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/traffic signs FBX/parking sign.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_M.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_R.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/wrench.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Car_repair.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/Parking_barrier.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_W.fbx
+  - Assets/Imported/Water/Water/Models/WaterPlane.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Letters FBX/Letter_H.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Shops_FBX/Shop_B.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/traffic_obj.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Motel.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Bank.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/Bench 2.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Letters FBX/Letter_O.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_O.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Police_station.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_K.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_B.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Letters FBX/Letter_I.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Shops_FBX/Supermaket.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_p.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/WalkWay_01.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Letters FBX/Letter_P.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_F.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/ways_FBX/Sidewalk_02.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_C1.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Building_Q.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Build_G-Middle.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Shops_FBX/Gas_station_A.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/Bus stop pole.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/props_FBX/Hospital_sign.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Letters FBX/Letter_S.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Build_G-Left.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Letters FBX/Letter_A.fbx
+  - Assets/Imported/POLYGON city pack/Meshes,textures/Buildings_FBX/Fire_department.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/street_.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Sidewalk_11.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Sidewalk_10.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Grass_stone_02.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Grass_stone_01.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/Wall 2.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Sidewalk_08.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_I_2.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/WalkWay 5.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/StoneStreet.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Sidewalk_06.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Sidewalk_01.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Sidewalk_05.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Fire_department.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Letters FBX/Letter_A.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_I_3.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/Fence_B_2.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/Bench 2.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_R.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_B1.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Shops_FBX/Shop_B.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/Wall 1.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_Y.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/WalkWay_02.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_D1.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/y_board.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_A1.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/WalkWay_01.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_c.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Build_G-Left.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Letters FBX/Letter_S.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/Hospital_sign.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Shops_FBX/Gas_station_A.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_A.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_N.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_J.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Shops_FBX/Supermaket.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Police_station.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_p.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/Bus stop pole.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/traffic_obj.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_S.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Build_G-Middle.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_H.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_Q.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/air conditioner wall.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/Parking_barrier.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_C1.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Sidewalk_02.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_F.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_K.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_E.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_u.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Letters FBX/Letter_P.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Bank.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Sidewalk_04.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Shops_FBX/Shop_C.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/wrench.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Car_repair.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/WalkWay 6.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/tree_01.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_Z.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_M.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Parking_checkOut.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Letters FBX/Letter_I.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_B.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_O.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Letters FBX/Letter_O.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_T.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Motel.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Letters FBX/Letter_H.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_W.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_D.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Hospital.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Letters FBX/Letter_L.fbx
+  - Assets/Imported/City Pack/Meshes,textures/ways_FBX/Sidewalk_12.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/air conditioner roof.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Letters FBX/Letter_T.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_I_1.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/building_X.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Shops_FBX/Shop_A.fbx
+  - Assets/Imported/City Pack/Meshes,textures/props_FBX/BurgerSho_Sign.fbx
+  - Assets/Imported/City Pack/Meshes,textures/Buildings_FBX/Building_V.fbx
+  modifiedAssetPaddingHash: d6a958ffcec12491ecc12491cec12491ecc12491bb09ecc0ecc12491ecc12491ecc12491ecc1249138c2a693f50cb6e8dd4608c8cfc3a693ed37ed04d25634b7194efff0ecc12491ecc12491ecc12491567e93633f3fd3d908dc894becc12491ecc12491d2f23a06797e93633c4efff0de09ecc0ecc124913c4efff042dd894becc124913c4efff0b4c2a693f50cb6e8ecc12491d7c2a693f50cb6e85267e2a8d7c2a693ecc1249180c5d8903f3fd3d9ecc12491ecc12491c8d15080ecc12491e54608c8ecc12491b4c2a693cb3188834adc894b353fd3d9ecc1249108dc894bd7c2a693d031888380c5d890fe4945be9c09ecc0363fd3d90aa3ddded2f23a06ecc12491af67e2a8797e9363eec12491ba5634b75dc5d8904adc894b3e3fd3d9343fd3d90f38ed041b3a8033194efff0ecc1249100b309ceeddb894b9650cf35de09ecc0d2f23a06f8398033f1f23a06ecc12491bb4608c8fcb209cef839803313a3ddde1b3a803306a3ddde7e4dfff07e4dfff0b95634b7ae5634b7b94608c8ad5634b750159a4306a3dddeb45634b7b45634b7ad5634b7b35634b7343fd3d9c2c4d89050159a431228c115eb37ed043e3fd3d9333fd3d91b3a8033f327c115af67e2a806a3ddde353fd3d9b15634b73e3fd3d906a3ddde3f3fd3d9de09ecc0f50aecc09f39803314f33a06333fd3d91b3a8033353fd3d9343fd3d93f3fd3d980c5d890cf318883d0c124913e3fd3d9de09ecc0343fd3d91b3a803326a3dddeadf25916353fd3d942dd894b567e9363333fd3d93c4efff080c5d8902bf43a06353fd3d9b35634b73e3fd3d9a768e2a8343fd3d906a3ddde7ac2a6933e3fd3d93c4efff0df4dfff0bb4608c8383fd3d9de09ecc038c2a69380c5d890323fd3d956f23a064adc894b3e3fd3d9383fd3d9d60aecc0b35634b7ff27c11561dd894b50159a4380c5d890af67e2a875f23a063ec5d890

@@ -7,6 +7,7 @@ using UnityEngine;
 public class BusRoute : MonoBehaviour
 {
     public List<Node> busStations = new List<Node>();
+    public int buses;
 
     float lineWidth;
     float iconYOffset = 2;
@@ -54,17 +55,17 @@ public class BusRoute : MonoBehaviour
     {
         busStations.RemoveAll(node => node == null);
 
-        if(newRoute.transform.childCount > 0)
+        if (newRoute.transform.childCount > 0)
         {
             newRoute.transform.GetChild(0).GetComponent<MeshRenderer>().material = busRouteManager.startStationMat;
-            
-            if(newRoute.transform.childCount > 1)
+
+            if (newRoute.transform.childCount > 1)
                 newRoute.transform.GetChild(1).GetComponent<MeshRenderer>().material = busRouteManager.endStationMat;
         }
 
         if (newPath != null)
         {
-            
+
             newRoute.GetComponent<LineRenderer>().positionCount = newPath.bestPath.Count;
             newRoute.GetComponent<LineRenderer>().SetPositions(newPath.bestPath.Select(node => node.transform.position + (Vector3.up * 0.2f)).ToArray());
         }
@@ -78,6 +79,42 @@ public class BusRoute : MonoBehaviour
         newPath.end = busStations[1];
 
         SpawnIcon(newPath.start.transform);
+
+        Node closestCarTerminal = GetClosestNodeOfType(newPath.start.transform, Node.NodeType.Car);
+        if(closestCarTerminal != null)
+        {
+            List<PathFinder> foundPathFinder = RouteManager.Instance.spawnedRoutes.Where(pathFinder => pathFinder.start == closestCarTerminal).ToList();
+            if(foundPathFinder.Count > 0)
+            {
+                foreach (var pF in foundPathFinder)
+                {
+                    pF.GetComponent<CarSpawner>().busPath = newPath;
+                }
+            }
+        }
+    }
+
+    Node GetClosestNodeOfType(Transform searchFrom, Node.NodeType type)
+    {
+        Node[] nodes = FindObjectsOfType<Node>(); // Get all Node objects
+
+        float closestDistance = Mathf.Infinity;
+        Node closestObject = null;
+
+        foreach (Node node in nodes)
+        {
+            if (node.nodeType == type)
+            {
+                float distance = Vector3.Distance(searchFrom.position, node.transform.position);
+                if (distance <= busRouteManager.detectTerminalRange && distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestObject = node;
+                }
+            }
+        }
+
+        return closestObject;
     }
 
     void SpawnIcon(Transform station)
